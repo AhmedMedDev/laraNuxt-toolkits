@@ -17,4 +17,8 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
+Route::get('/home', function () {
+    return "Server Hoem Page";
+});
+
 require __DIR__.'/auth.php';
