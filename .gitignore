@@ -15,5 +15,5 @@ yarn-error.log
 /.vscode
 
 # nuxt.js build output
-/nuxt-app/.nuxt
-/nuxt-app/node_modules/
+/nuxt/.nuxt
+/nuxt/node_modules/
