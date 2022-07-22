@@ -85,8 +85,6 @@ export default {
         await this.$axios.post("register", this.form);
 
         await this.$auth.loginWith("laravelSanctum", { data: this.form });
-
-        this.form.processing = false;
       } catch (e) {
         Object.keys(e.response.data.errors).forEach((key) => {
           Object.values(e.response.data.errors[key]).forEach((error) => {

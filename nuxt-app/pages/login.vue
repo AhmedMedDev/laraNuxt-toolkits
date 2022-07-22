@@ -6,27 +6,14 @@
     <form @submit.prevent="submit">
       <div>
         <BreezeLabel for="email" value="Email" />
-        <BreezeInput
-          id="email"
-          type="email"
-          class="mt-1 block w-full"
-          v-model="form.email"
-          required
-          autofocus
-          autocomplete="username"
-        />
+        <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
+          autocomplete="username" />
       </div>
 
       <div class="mt-4">
         <BreezeLabel for="password" value="Password" />
-        <BreezeInput
-          id="password"
-          type="password"
-          class="mt-1 block w-full"
-          v-model="form.password"
-          required
-          autocomplete="current-password"
-        />
+        <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
+          autocomplete="current-password" />
       </div>
 
       <div class="block mt-4">
@@ -37,18 +24,11 @@
       </div>
 
       <div class="flex items-center justify-end mt-4">
-        <NuxtLink
-          to="/forgot-password"
-          class="underline text-sm text-gray-600 hover:text-gray-900"
-        >
+        <NuxtLink to="/forgot-password" class="underline text-sm text-gray-600 hover:text-gray-900">
           Forgot your password?
         </NuxtLink>
 
-        <BreezeButton
-          class="ml-4"
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing"
-        >
+        <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Log in
         </BreezeButton>
       </div>
@@ -97,7 +77,6 @@ export default {
       try {
         await this.$auth.loginWith("laravelSanctum", { data: this.form });
 
-        this.form.processing = false;
       } catch (e) {
         Object.keys(e.response.data.errors).forEach((key) => {
           Object.values(e.response.data.errors[key]).forEach((error) => {
@@ -105,6 +84,7 @@ export default {
           });
         });
       }
+      this.form.processing = false;
     },
   },
 };
