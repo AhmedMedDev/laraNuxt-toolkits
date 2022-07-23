@@ -55,7 +55,16 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-
+  loading: {
+    duration: 5000,
+    continuous: true,
+    throttle: 0
+  },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
   auth: {
     strategies: {
       laravelSanctum: {

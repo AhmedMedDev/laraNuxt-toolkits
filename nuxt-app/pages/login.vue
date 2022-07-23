@@ -70,12 +70,13 @@ export default {
   },
 
   methods: {
-    async submit() {
+    submit() {
+      this.$nuxt.$loading.start();
       this.form.processing = true;
       this.form.errors = [];
 
       try {
-        await this.$auth.loginWith("laravelSanctum", { data: this.form });
+        this.$auth.loginWith("laravelSanctum", { data: this.form });
 
       } catch (e) {
         Object.keys(e.response.data.errors).forEach((key) => {

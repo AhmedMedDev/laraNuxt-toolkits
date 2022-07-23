@@ -76,6 +76,7 @@ export default {
 
   methods: {
     async submit() {
+      this.$nuxt.$loading.start()
       this.form.processing = true;
       this.form.errors = [];
 
